@@ -22,7 +22,7 @@ namespace RightTurn.Extensions.Serilog
             });
 
             if (!turn.Directions.Have<ITurnLogging>())
-                turn.WithLogging();
+                turn.AddLogging();
 
             return turn;
         }
