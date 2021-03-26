@@ -7,7 +7,7 @@ using System;
 
 namespace RightTurn.Extensions.Serilog
 {
-    public static class SerilogTurnExtensions
+    public static class TurnSerilogExtensions
     {
         /// <summary>
         /// Add Serilog with configuration direction.
@@ -31,6 +31,7 @@ namespace RightTurn.Extensions.Serilog
         /// <returns></returns>
         public static ITurn WithSerilog(this ITurn turn, Func<LoggerConfiguration, LoggerConfiguration> configuration)
         {
+
             turn.Directions.Add<Action<ILoggingBuilder>>((ILoggingBuilder builder) =>
             {
                 builder.AddSerilog(
