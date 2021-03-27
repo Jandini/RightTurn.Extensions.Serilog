@@ -16,7 +16,7 @@ namespace RightTurn.Extensions.Serilog
         {
             return WithSerilog(turn, (loggerConfiguration) => {                               
                 if (!turn.Directions.Have<IConfiguration>(out var configuration))
-                    throw new Exception("Configuration is missing. Use configuration extensions to provide configuration builder.");
+                    throw new Exception("IConfiguration is required. Use configuration extensions to provide configuration builder.");
                 return loggerConfiguration.ReadFrom.Configuration(configuration);
             });
         }
