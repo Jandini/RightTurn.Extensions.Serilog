@@ -11,6 +11,7 @@
     <Description>Provides Serilog extensions for RightTurn start-up container.</Description>
     <PackageTags>right turn start-up container application main logging configuration exceptions commandline command line</PackageTags>
     <RepositoryUrl>https://github.com/Jandini/RightTurn.Extensions.Serilog</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Jandini/RightTurn.Extensions.Serilog</PackageProjectUrl>    
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,14 +23,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RightTurn.Extensions.Configuration" Version="0.1.0" />
-    <PackageReference Include="RightTurn.Extensions.Logging" Version="0.1.0" />
+    <PackageReference Include="RightTurn" Version="0.2.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
 
-    <PackageReference Include="GitVersionTask" Version="5.5.1">
+    <PackageReference Include="GitVersion.MsBuild" Version="5.6.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
