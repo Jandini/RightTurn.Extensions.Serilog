@@ -7,16 +7,19 @@ namespace RightTurn.Extensions.Serilog
 {
     public static class TurnSerilogExtensions
     {
-
         /// <summary>
         /// Add Serilog from configuration.
         /// </summary>
         /// <param name="turn"></param>
-        /// <param name="configuration">IConfiguration</param>
         /// <returns></returns>
-        public static ITurn WithSerilog(this ITurn turn, Func<ITurn, IConfiguration> configuration)
+        public static ITurn WithSerilog(this ITurn turn)
         {
-            return WithSerilog(turn, (config) => config.ReadFrom.Configuration(configuration(turn)));
+            var configuration = turn.Directions.TryGet<IConfiguration>();
+
+            if (configuration is null)
+                throw new Exception("Configuration is missing. Use configuration extensions to provide configuration builder.");
+
+            return WithSerilog(turn, (config) => config.ReadFrom.Configuration(configuration));
         }
 
         /// <summary>
