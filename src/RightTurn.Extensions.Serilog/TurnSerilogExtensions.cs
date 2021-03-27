@@ -14,12 +14,11 @@ namespace RightTurn.Extensions.Serilog
         /// <returns></returns>
         public static ITurn WithSerilog(this ITurn turn)
         {
-            var configuration = turn.Directions.TryGet<IConfiguration>();
-
-            if (configuration is null)
-                throw new Exception("Configuration is missing. Use configuration extensions to provide configuration builder.");
-
-            return WithSerilog(turn, (config) => config.ReadFrom.Configuration(configuration));
+            return WithSerilog(turn, (loggerConfiguration) => {                               
+                if (!turn.Directions.Have<IConfiguration>(out var configuration))
+                    throw new Exception("Configuration is missing. Use configuration extensions to provide configuration builder.");
+                return loggerConfiguration.ReadFrom.Configuration(configuration);
+            });
         }
 
         /// <summary>
