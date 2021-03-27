@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using RightTurn.Exceptions;
 using Serilog;
 using System;
 
@@ -16,7 +17,7 @@ namespace RightTurn.Extensions.Serilog
         {
             return WithSerilog(turn, (loggerConfiguration) => {                               
                 if (!turn.Directions.Have<IConfiguration>(out var configuration))
-                    throw new Exception("IConfiguration is required. Use configuration extensions to provide configuration builder.");
+                    throw new TurnConfigurationRequiredException();
                 return loggerConfiguration.ReadFrom.Configuration(configuration);
             });
         }
