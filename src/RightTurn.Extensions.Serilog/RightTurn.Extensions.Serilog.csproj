@@ -11,6 +11,7 @@
     <Description>Provides Serilog extensions for RightTurn start-up container.</Description>
     <PackageTags>right turn start-up container application main logging configuration exceptions commandline command line</PackageTags>
     <RepositoryUrl>https://github.com/Jandini/RightTurn.Extensions.Serilog</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Jandini/RightTurn.Extensions.Serilog</PackageProjectUrl>    
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
